@@ -122,6 +122,7 @@ label {
   align-items: center;
   position: relative;
   cursor: pointer;
+  user-select: none;
 }
 
 /* Checkmark background */

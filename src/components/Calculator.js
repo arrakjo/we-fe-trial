@@ -128,6 +128,7 @@ function Calculator() {
                 className="input"
                 value={income}
                 onChange={(e) => setIncome(e.target.value)}
+                aria-label="Your average income"
               />
               <p className="symbol">€</p>
             </div>
@@ -141,6 +142,7 @@ function Calculator() {
                 className="input"
                 value={daysInput}
                 onChange={(e) => setDaysInput(e.target.value)}
+                aria-label="Days on sick-leave"
               />
               <p className="symbol">days</p>
             </div>
@@ -153,6 +155,7 @@ function Calculator() {
                 className="checkbox"
                 value={check}
                 onClick={handleCheck}
+                aria-label="Tubercolosis checkbox"
               />
               I have tubercolosis
               <span className="checkmark"></span>
@@ -161,7 +164,9 @@ function Calculator() {
           </div>
           {/* Calculate button */}
           <div className="input-container">
-            <button onClick={handleCalculate}>Calculate</button>
+            <button onClick={handleCalculate} aria-label="Calculate">
+              Calculate
+            </button>
           </div>
           {/* Divider */}
           <div className="divider"></div>
