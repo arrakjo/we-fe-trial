@@ -1,0 +1,105 @@
+.text-container {
+  margin-right: 100px;
+  max-width: 660px;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -0.02em;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+a {
+  color: #e1261c;
+  text-underline-offset: 1px;
+}
+a:visited {
+  color: #e1261c;
+}
+
+.secondary {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.secondary-description {
+  max-width: 380px;
+}
+
+img {
+  width: 240px;
+  height: 180px;
+  pointer-events: none;
+}
+
+.list {
+  margin-top: 0;
+  margin-left: -15px;
+}
+
+ul {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+li {
+  padding-left: 9px;
+  margin-bottom: 10px;
+}
+
+li.bullet-primary {
+  list-style-image: url("../../public/images/Bullet.svg");
+}
+
+li.bullet-secondary {
+  list-style-image: url("../../public/images/Bullet_alt.svg");
+  margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .text-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 20px;
+    margin-bottom: 60px;
+  }
+  .secondary {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1096px) {
+  .text-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 60px;
+    margin-bottom: 60px;
+  }
+}

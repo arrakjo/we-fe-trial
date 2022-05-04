@@ -1,0 +1,268 @@
+.side-container {
+  --metal-dark: #111317;
+  --metal-mid: #7a818e;
+  --metal-light: #e9edf4;
+  --metal-light-grad: linear-gradient(90deg, #d3dae8 0%, #a7b7d8 100%);
+  --metal-light-red: linear-gradient(90deg, #911812 0%, #e1261c 100%);
+}
+
+.calculator {
+  width: 320px;
+  height: 755px;
+  position: relative;
+
+  background: url("../../public/images/Background.svg");
+  background-size: 100%;
+  color: var(--metal-dark);
+}
+
+.inner-container {
+  padding: 80px 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+  color: var(--metal-dark);
+}
+
+.input-container {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--metal-dark);
+
+  margin-bottom: 5px;
+}
+
+.input-grad {
+  width: 280px;
+  height: 50px;
+  background: var(--metal-light-grad);
+  border-radius: 4px;
+
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  width: 256px;
+  height: 26px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+}
+.input:focus {
+  outline: none;
+}
+
+.symbol {
+  position: absolute;
+  right: 10px;
+
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+
+  position: relative;
+  z-index: 23;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check-grad {
+  width: 20px;
+  height: 20px;
+  background: var(--metal-light-grad);
+  border-radius: 4px;
+
+  position: absolute;
+  z-index: 22;
+  margin-left: 4px;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkmark label */
+label {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--metal-dark);
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Checkmark background */
+.checkmark {
+  position: absolute;
+  z-index: 24;
+  top: 5px;
+  left: 6px;
+
+  height: 16px;
+  width: 16px;
+  background-color: #fff;
+
+  border-radius: 3px;
+}
+
+/* Hide checkmark by default */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show checkmark */
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Checkmark styles */
+.checkmark:after {
+  left: 5px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--metal-dark);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+button {
+  width: 194px;
+  height: 60px;
+  background: var(--metal-light-red);
+  border: none;
+  border-radius: 30px;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+
+  transition: all 0.07s ease-in-out;
+}
+button:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15),
+    inset 0px -4px 0px rgba(0, 0, 0, 0.25);
+}
+button:active {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25),
+    inset 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.divider {
+  width: 320px;
+  height: 1px;
+  background: var(--metal-light);
+  margin-left: -20px;
+  margin-bottom: 20px;
+}
+
+.results-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results {
+  max-width: 130px;
+  text-align: center;
+}
+
+.results-title {
+  margin: 0;
+  color: var(--metal-dark);
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.results-days {
+  font-weight: 700;
+}
+
+.results-amount {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.results-allowance {
+  color: var(--metal-mid);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.total-container {
+  text-align: center;
+}
+
+.total-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: var(--metal-dark);
+  margin-bottom: 5px;
+}
+
+.total-amount {
+  margin: 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
