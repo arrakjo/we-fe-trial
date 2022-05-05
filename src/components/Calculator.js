@@ -125,7 +125,7 @@ function Calculator() {
       let employerComp = employerDays * dailyCompensation;
       let insuranceDays = 232;
       let insuranceComp = insuranceDays * dailyCompensation;
-      let totalDays = 240;
+      let totalDays = 237;
       let totalComp = (employerDays + insuranceDays) * dailyCompensation;
 
       setEmployer({
