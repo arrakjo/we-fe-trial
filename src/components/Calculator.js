@@ -8,34 +8,46 @@ function Calculator() {
   const [daysInput, setDaysInput] = useState("");
 
   // Set the employer compensation states
-  const [eDays, setEmployerDays] = useState(0);
-  const [eComp, setEmployerComp] = useState(0);
-  const [eAllowance, setEmployerAllowance] = useState(0);
+  const [employer, setEmployer] = useState({
+    days: 0,
+    compensation: 0,
+    allowance: 0,
+  });
 
   // Set the insurance compensation states
-  const [iDays, setInsuranceDays] = useState(0);
-  const [iComp, setInsuranceComp] = useState(0);
-  const [iAllowance, setInsuranceAllowance] = useState(0);
+  const [insurance, setInsurance] = useState({
+    days: 0,
+    compensation: 0,
+    allowance: 0,
+  });
 
   // Set the total amount states
-  const [tDays, setTotalDays] = useState(0);
-  const [tComp, setTotalComp] = useState(0);
+  const [total, setTotal] = useState({
+    days: 0,
+    compensation: 0,
+  });
 
   // Handle checkbox state change
   const handleCheck = () => {
     setCheck(!check);
   };
 
-  // Reset to zero if compensation criteria is not met
+  // Reset the results to zero
   const setNull = () => {
-    setEmployerDays(0);
-    setEmployerComp(0);
-    setEmployerAllowance(0);
-    setInsuranceDays(0);
-    setInsuranceComp(0);
-    setInsuranceAllowance(0);
-    setTotalDays(0);
-    setTotalComp(0);
+    setEmployer({
+      days: 0,
+      compensation: 0,
+      allowance: 0,
+    });
+    setInsurance({
+      days: 0,
+      compensation: 0,
+      allowance: 0,
+    });
+    setTotal({
+      days: 0,
+      compensation: 0,
+    });
   };
 
   // Specify the amount of decimals always shown on amounts
@@ -48,69 +60,110 @@ function Calculator() {
   const handleCalculate = () => {
     if (daysInput >= 4 && daysInput <= 8) {
       let employerDays = daysInput - 3;
+      let employerComp = employerDays * dailyCompensation;
 
-      setEmployerDays(daysInput - 3);
-      setEmployerComp(employerDays * dailyCompensation);
-      setEmployerAllowance(dailyCompensation);
-
-      setTotalDays(daysInput - 3);
-      setTotalComp(employerDays * dailyCompensation);
+      setEmployer({
+        days: employerDays,
+        compensation: employerComp,
+        allowance: dailyCompensation,
+      });
+      setInsurance({
+        days: 0,
+        compensation: 0,
+        allowance: 0,
+      });
+      setTotal({
+        days: employerDays,
+        compensation: employerComp,
+      });
     } else if (daysInput >= 9 && daysInput <= 182) {
       let employerDays = 5;
+      let employerComp = employerDays * dailyCompensation;
       let insuranceDays = daysInput - 8;
+      let insuranceComp = insuranceDays * dailyCompensation;
+      let totalDays = daysInput - 3;
+      let totalComp = (employerDays + insuranceDays) * dailyCompensation;
 
-      setEmployerDays(employerDays);
-      setEmployerComp(employerDays * dailyCompensation);
-      setEmployerAllowance(dailyCompensation);
-
-      setInsuranceDays(insuranceDays);
-      setInsuranceComp(insuranceDays * dailyCompensation);
-      setInsuranceAllowance(dailyCompensation);
-
-      setTotalDays(daysInput - 3);
-      setTotalComp((employerDays + insuranceDays) * dailyCompensation);
+      setEmployer({
+        days: employerDays,
+        compensation: employerComp,
+        allowance: dailyCompensation,
+      });
+      setInsurance({
+        days: insuranceDays,
+        compensation: insuranceComp,
+        allowance: dailyCompensation,
+      });
+      setTotal({
+        days: totalDays,
+        compensation: totalComp,
+      });
     } else if (check && daysInput >= 182 && daysInput < 240) {
       let employerDays = 5;
+      let employerComp = employerDays * dailyCompensation;
       let insuranceDays = daysInput - 8;
+      let insuranceComp = insuranceDays * dailyCompensation;
+      let totalDays = daysInput - 3;
+      let totalComp = (employerDays + insuranceDays) * dailyCompensation;
 
-      setEmployerDays(employerDays);
-      setEmployerComp(employerDays * dailyCompensation);
-      setEmployerAllowance(dailyCompensation);
-
-      setInsuranceDays(insuranceDays);
-      setInsuranceComp(insuranceDays * dailyCompensation);
-      setInsuranceAllowance(dailyCompensation);
-
-      setTotalDays(daysInput - 3);
-      setTotalComp((employerDays + insuranceDays) * dailyCompensation);
+      setEmployer({
+        days: employerDays,
+        compensation: employerComp,
+        allowance: dailyCompensation,
+      });
+      setInsurance({
+        days: insuranceDays,
+        compensation: insuranceComp,
+        allowance: dailyCompensation,
+      });
+      setTotal({
+        days: totalDays,
+        compensation: totalComp,
+      });
     } else if (check && daysInput >= 240) {
       let employerDays = 5;
+      let employerComp = employerDays * dailyCompensation;
       let insuranceDays = 232;
+      let insuranceComp = insuranceDays * dailyCompensation;
+      let totalDays = 240;
+      let totalComp = (employerDays + insuranceDays) * dailyCompensation;
 
-      setEmployerDays(employerDays);
-      setEmployerComp(employerDays * dailyCompensation);
-      setEmployerAllowance(dailyCompensation);
-
-      setInsuranceDays(insuranceDays);
-      setInsuranceComp(insuranceDays * dailyCompensation);
-      setInsuranceAllowance(dailyCompensation);
-
-      setTotalDays(240);
-      setTotalComp((employerDays + insuranceDays) * dailyCompensation);
+      setEmployer({
+        days: employerDays,
+        compensation: employerComp,
+        allowance: dailyCompensation,
+      });
+      setInsurance({
+        days: insuranceDays,
+        compensation: insuranceComp,
+        allowance: dailyCompensation,
+      });
+      setTotal({
+        days: totalDays,
+        compensation: totalComp,
+      });
     } else if (!check && daysInput > 182) {
       let employerDays = 5;
+      let employerComp = employerDays * dailyCompensation;
       let insuranceDays = 174;
+      let insuranceComp = insuranceDays * dailyCompensation;
+      let totalDays = 179;
+      let totalComp = (employerDays + insuranceDays) * dailyCompensation;
 
-      setEmployerDays(employerDays);
-      setEmployerComp(employerDays * dailyCompensation);
-      setEmployerAllowance(dailyCompensation);
-
-      setInsuranceDays(insuranceDays);
-      setInsuranceComp(insuranceDays * dailyCompensation);
-      setInsuranceAllowance(dailyCompensation);
-
-      setTotalDays(174);
-      setTotalComp((employerDays + insuranceDays) * dailyCompensation);
+      setEmployer({
+        days: employerDays,
+        compensation: employerComp,
+        allowance: dailyCompensation,
+      });
+      setInsurance({
+        days: insuranceDays,
+        compensation: insuranceComp,
+        allowance: dailyCompensation,
+      });
+      setTotal({
+        days: totalDays,
+        compensation: totalComp,
+      });
     } else setNull();
   };
 
@@ -177,16 +230,16 @@ function Calculator() {
                 The employer compensates
                 <br />
                 <span className="results-days">
-                  {eDays.toLocaleString("et-EE")} days
+                  {employer.days.toLocaleString("et-EE")} days
                 </span>
               </p>
               <p className="results-amount">
-                {eComp.toLocaleString("et-EE", dec)}€
+                {employer.compensation.toLocaleString("et-EE", dec)}€
               </p>
               <p className="results-allowance">
                 Daily allowance
                 <br />
-                <span>{eAllowance.toLocaleString("et-EE", dec)}</span> €
+                <span>{employer.allowance.toLocaleString("et-EE", dec)}</span> €
               </p>
             </div>
             <div className="results">
@@ -194,16 +247,19 @@ function Calculator() {
                 Health Insurance compensates
                 <br />
                 <span className="results-days">
-                  {iDays.toLocaleString("et-EE")} days
+                  {insurance.days.toLocaleString("et-EE")} days
                 </span>
               </p>
               <p className="results-amount">
-                {iComp.toLocaleString("et-EE", dec)}€
+                {insurance.compensation.toLocaleString("et-EE", dec)}€
               </p>
               <p className="results-allowance">
                 Daily allowance
                 <br />
-                <span>{iAllowance.toLocaleString("et-EE", dec)}</span> €
+                <span>
+                  {insurance.allowance.toLocaleString("et-EE", dec)}
+                </span>{" "}
+                €
               </p>
             </div>
           </div>
@@ -212,10 +268,11 @@ function Calculator() {
           {/* Total compensation */}
           <div className="total-container">
             <p className="total-title">
-              Compensation total for {tDays.toLocaleString("et-EE")} days (net)
+              Compensation total for {total.days.toLocaleString("et-EE")} days
+              (net)
             </p>
             <p className="total-amount">
-              {tComp.toLocaleString("et-EE", dec)}€
+              {total.compensation.toLocaleString("et-EE", dec)}€
             </p>
           </div>
         </div>
